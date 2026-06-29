@@ -1,78 +1,739 @@
-# Hi, I'm Trang Tien Le 👋
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trang Tien Le — Senior Full-Stack Engineer & Solutions Architect</title>
+  <meta name="description" content="Senior Full-Stack Engineer & Solutions Architect with 18+ years building enterprise platforms for the World Bank, IMF, OECD, and UN." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-**Senior Full-Stack Engineer & Solutions Architect** · 18+ years building enterprise-grade web platforms
+    :root {
+      --bg: #0d1117;
+      --bg2: #161b22;
+      --bg3: #21262d;
+      --border: #30363d;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --accent: #58a6ff;
+      --accent2: #3fb950;
+      --accent3: #d2a8ff;
+      --accent4: #ffa657;
+      --red: #f85149;
+    }
 
-Currently architecting Drupal-based platforms for the **World Bank Group** — serving finance ministers, central bank governors, and development professionals across 189 member countries.
+    html { scroll-behavior: smooth; }
 
----
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-## 🔧 What I Build
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-- **Enterprise CMS platforms** powering global institutions (World Bank, IMF, OECD, UN)
-- **Scalable cloud infrastructure** on AWS, Azure, Acquia, and Pantheon
-- **AI-powered workflows** — chatbots, automation pipelines, and LLM integrations
-- **Full-stack applications** from Laravel backends to React.js frontends
-- **IAM & SSO systems** using OpenID Connect, OAuth2, and SAML
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(13,17,23,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Fira Code', monospace;
+      color: var(--accent);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
 
----
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 100px 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 20% 50%, rgba(88,166,255,0.08) 0%, transparent 60%),
+                  radial-gradient(ellipse at 80% 20%, rgba(63,185,80,0.06) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .hero-inner { max-width: 900px; margin: 0 auto; position: relative; }
+    .hero-tag {
+      font-family: 'Fira Code', monospace;
+      color: var(--accent2);
+      font-size: 0.875rem;
+      margin-bottom: 1.25rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .hero-tag::before {
+      content: '';
+      display: inline-block;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent2);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      color: var(--muted);
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+    }
+    .hero-subtitle span { color: var(--accent); }
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 620px;
+      margin-bottom: 2.5rem;
+      line-height: 1.75;
+    }
+    .hero-desc strong { color: var(--text); font-weight: 500; }
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.7rem 1.5rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #0d1117;
+    }
+    .btn-primary:hover { background: #79b8ff; text-decoration: none; color: #0d1117; }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; background: rgba(88,166,255,0.06); }
 
-## 🛠️ Tech Stack
+    .hero-stats {
+      display: flex; gap: 2.5rem; flex-wrap: wrap;
+      margin-top: 3.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .stat-num {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
 
-**Backend**
-![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat&logo=php&logoColor=white)
-![Drupal](https://img.shields.io/badge/Drupal-0678BE?style=flat&logo=drupal&logoColor=white)
-![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=flat&logo=laravel&logoColor=white)
-![Symfony](https://img.shields.io/badge/Symfony-000000?style=flat&logo=symfony&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)
+    /* SECTIONS */
+    section { padding: 5rem 2rem; }
+    .section-inner { max-width: 900px; margin: 0 auto; }
+    .section-label {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
+    }
+    h2 {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+    .section-desc {
+      color: var(--muted);
+      margin-bottom: 3rem;
+      max-width: 560px;
+      line-height: 1.75;
+    }
 
-**Frontend**
-![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
-![Vue.js](https://img.shields.io/badge/Vue.js-4FC08D?style=flat&logo=vue.js&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind-06B6D4?style=flat&logo=tailwindcss&logoColor=white)
+    /* SKILLS */
+    #skills { background: var(--bg2); }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+    .skill-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .skill-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .skill-card-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tag {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.75rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.25rem 0.6rem;
+      color: var(--muted);
+      transition: all 0.2s;
+    }
+    .tag:hover { border-color: var(--accent); color: var(--accent); }
 
-**Cloud & DevOps**
-![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat&logo=amazonaws&logoColor=white)
-![Azure](https://img.shields.io/badge/Azure-0078D4?style=flat&logo=microsoftazure&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
-![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=flat&logo=terraform&logoColor=white)
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+      gap: 1.25rem;
+    }
+    @media (max-width: 480px) {
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+    .project-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+      display: flex; flex-direction: column;
+    }
+    .project-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .project-top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      margin-bottom: 0.75rem;
+    }
+    .project-icon { font-size: 1.5rem; }
+    .project-link {
+      color: var(--muted);
+      transition: color 0.2s;
+      font-size: 0.85rem;
+    }
+    .project-link:hover { color: var(--accent); }
+    .project-name {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .project-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 1.25rem;
+    }
+    .project-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto; }
+    .stack-tag {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+    .tag-php { background: rgba(119,107,180,0.2); color: #a890d3; }
+    .tag-drupal { background: rgba(6,120,190,0.2); color: #58a6ff; }
+    .tag-laravel { background: rgba(255,45,32,0.2); color: #ffa07a; }
+    .tag-react { background: rgba(97,218,251,0.2); color: #61dafb; }
+    .tag-aws { background: rgba(255,153,0,0.15); color: #ffa657; }
+    .tag-ai { background: rgba(63,185,80,0.15); color: #3fb950; }
+    .tag-mysql { background: rgba(68,121,161,0.2); color: #79b8ff; }
+    .tag-map { background: rgba(210,168,255,0.15); color: #d2a8ff; }
+    .tag-d3 { background: rgba(248,81,73,0.15); color: #f85149; }
+    .tag-oauth { background: rgba(255,166,87,0.15); color: #ffa657; }
 
-**Data & Search**
-![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white)
-![Elasticsearch](https://img.shields.io/badge/Elasticsearch-005571?style=flat&logo=elasticsearch&logoColor=white)
-![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat&logo=redis&logoColor=white)
+    /* EXPERIENCE */
+    #experience { background: var(--bg2); }
+    .timeline { position: relative; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 8px; bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+    .timeline-item {
+      padding-left: 2rem;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -5px; top: 8px;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg2);
+    }
+    .timeline-date {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.75rem;
+      color: var(--accent2);
+      margin-bottom: 0.4rem;
+    }
+    .timeline-role {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+    .timeline-company {
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+    .timeline-bullets { list-style: none; }
+    .timeline-bullets li {
+      font-size: 0.875rem;
+      color: var(--muted);
+      padding: 0.2rem 0;
+      padding-left: 1rem;
+      position: relative;
+      line-height: 1.6;
+    }
+    .timeline-bullets li::before {
+      content: '▸';
+      position: absolute; left: 0;
+      color: var(--accent);
+      font-size: 0.7rem;
+      top: 0.35rem;
+    }
 
-**AI & Automation**
-![n8n](https://img.shields.io/badge/n8n-EA4B71?style=flat&logo=n8n&logoColor=white)
-![OpenAI](https://img.shields.io/badge/LLM%20Integration-412991?style=flat&logo=openai&logoColor=white)
+    /* OPEN SOURCE */
+    .oss-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+    .oss-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: border-color 0.2s;
+    }
+    .oss-card:hover { border-color: var(--accent2); }
+    .oss-card-title {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .oss-card-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
 
----
+    /* CONTACT */
+    #contact {
+      background: var(--bg2);
+      text-align: center;
+    }
+    #contact .section-inner { max-width: 600px; }
+    #contact h2 { margin-bottom: 1rem; }
+    #contact p { color: var(--muted); margin-bottom: 2rem; line-height: 1.75; }
+    .contact-links {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    }
 
-## 🌍 Selected Work
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-family: 'Fira Code', monospace;
+    }
 
-| Project | What it is | Stack |
-|---|---|---|
-| [World Bank Blogs](https://blogs.worldbank.org/) | 32-channel multilingual blog platform in 7 languages for hundreds of global editors | Drupal 10, PHP, MySQL, Azure AD SSO |
-| [ICSID Case Search](https://icsid.worldbank.org/) | Real-time arbitration case search for 160+ member states | Drupal 10, React.js, JSON:API |
-| [PEFA Platform](https://www.pefa.org/) | Public financial management assessments across 156 countries with D3.js visualizations | Drupal 10, D3.js, REST API |
-| [PCT Tax Platform](https://www.tax-platform.org/) | IMF/OECD/UN/WBG joint platform with interactive Mapbox project map | Drupal 10, Mapbox GL JS, OAuth2 |
-| [Dat Viet Cargo](https://datvietcargo.com) | End-to-end logistics platform with AI chatbot, FedEx/UPS integration, and automated invoicing | Laravel, AWS, AI Agent, n8n |
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      nav .nav-links { display: none; }
+      .hero-stats { gap: 1.5rem; }
+      section { padding: 3.5rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
 
----
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">trangunghoa.github.io</div>
+    <ul class="nav-links">
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-## 🤝 Open Source
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <div class="hero-tag">Available for Senior Engineering Roles</div>
+      <h1>Trang Tien Le</h1>
+      <div class="hero-subtitle">
+        Senior Full-Stack Engineer &amp; <span>Solutions Architect</span>
+      </div>
+      <p class="hero-desc">
+        18+ years building <strong>enterprise-grade platforms</strong> for global institutions —
+        the World Bank, IMF, OECD, and UN. I architect scalable backend systems,
+        deploy cloud infrastructure, and integrate AI workflows that serve
+        <strong>millions of users worldwide</strong>.
+      </p>
+      <div class="hero-cta">
+        <a href="mailto:trangunghoa@gmail.com" class="btn btn-primary">
+          ✉ Get in Touch
+        </a>
+        <a href="https://www.drupal.org/u/trangunghoa" target="_blank" class="btn btn-secondary">
+          ⬡ Drupal.org Profile
+        </a>
+        <a href="https://github.com/trangunghoa" target="_blank" class="btn btn-secondary">
+          ⌥ GitHub
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">18+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div>
+          <div class="stat-num">100+</div>
+          <div class="stat-label">Enterprise Projects</div>
+        </div>
+        <div>
+          <div class="stat-num">189</div>
+          <div class="stat-label">Countries Served</div>
+        </div>
+        <div>
+          <div class="stat-num">7</div>
+          <div class="stat-label">Languages Deployed</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-- **[Drupal.org](https://www.drupal.org/u/trangunghoa)** — Active core & module contributor
-- IBM Watson AI/Speech integration module for Drupal *(in progress)*
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-inner">
+      <div class="section-label">// expertise</div>
+      <h2>Technical Stack</h2>
+      <p class="section-desc">Deep specialization across the full stack — from database schema design to cloud infrastructure and AI integration.</p>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-card-title">⚙️ Backend</div>
+          <div class="skill-tags">
+            <span class="tag">PHP 8.x</span>
+            <span class="tag">Drupal 6–11</span>
+            <span class="tag">Laravel 13</span>
+            <span class="tag">Symfony 6</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">REST API</span>
+            <span class="tag">GraphQL</span>
+            <span class="tag">Microservices</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-title">🖥️ Frontend</div>
+          <div class="skill-tags">
+            <span class="tag">React.js 18</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Vue.js 3</span>
+            <span class="tag">Tailwind CSS</span>
+            <span class="tag">D3.js</span>
+            <span class="tag">Mapbox GL JS</span>
+            <span class="tag">SASS/SCSS</span>
+            <span class="tag">Twig</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-title">☁️ Cloud & DevOps</div>
+          <div class="skill-tags">
+            <span class="tag">AWS EC2/ECS/S3</span>
+            <span class="tag">Azure</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Terraform</span>
+            <span class="tag">Ansible</span>
+            <span class="tag">GitHub Actions</span>
+            <span class="tag">Acquia</span>
+            <span class="tag">Pantheon</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-title">🗄️ Data & Search</div>
+          <div class="skill-tags">
+            <span class="tag">MySQL 8</span>
+            <span class="tag">PostgreSQL 15</span>
+            <span class="tag">Redis</span>
+            <span class="tag">Elasticsearch</span>
+            <span class="tag">Apache Solr</span>
+            <span class="tag">Apache Tika</span>
+            <span class="tag">Memcache</span>
+            <span class="tag">Varnish</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-title">🤖 AI & Automation</div>
+          <div class="skill-tags">
+            <span class="tag">LLM Integration</span>
+            <span class="tag">AI Agents</span>
+            <span class="tag">n8n Workflows</span>
+            <span class="tag">IBM Watson</span>
+            <span class="tag">Chatwoot</span>
+            <span class="tag">Cursor IDE</span>
+            <span class="tag">Claude</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-title">🔐 IAM & Security</div>
+          <div class="skill-tags">
+            <span class="tag">OpenID Connect</span>
+            <span class="tag">OAuth2</span>
+            <span class="tag">SAML</span>
+            <span class="tag">Azure AD SSO</span>
+            <span class="tag">RBAC</span>
+            <span class="tag">OWASP</span>
+            <span class="tag">SSL/TLS</span>
+            <span class="tag">CSP</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
----
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-inner">
+      <div class="section-label">// selected work</div>
+      <h2>Projects</h2>
+      <p class="section-desc">A selection of enterprise platforms I've architected and built — serving global institutions and millions of users.</p>
+      <div class="projects-grid">
 
-## 📫 Get in Touch
+        <div class="project-card">
+          <div class="project-top">
+            <div class="project-icon">🚢</div>
+            <a href="https://datvietcargo.com" target="_blank" class="project-link">↗ Live</a>
+          </div>
+          <div class="project-name">Dat Viet Cargo</div>
+          <div class="project-desc">End-to-end logistics platform for US–Vietnam international shipping across 6 branch locations. Built from scratch with FedEx/UPS API integration, automated invoicing, AI chatbot for 24/7 customer support, and real-time shipment tracking.</div>
+          <div class="project-stack">
+            <span class="stack-tag tag-laravel">Laravel</span>
+            <span class="stack-tag tag-mysql">MySQL</span>
+            <span class="stack-tag tag-aws">AWS EC2/S3/SNS</span>
+            <span class="stack-tag tag-ai">AI Agent</span>
+            <span class="stack-tag tag-ai">n8n</span>
+          </div>
+        </div>
 
-- 📧 trangunghoa@gmail.com
-- 💼 Open to senior engineering & architect roles
+        <div class="project-card">
+          <div class="project-top">
+            <div class="project-icon">📝</div>
+            <a href="https://blogs.worldbank.org/" target="_blank" class="project-link">↗ Live</a>
+          </div>
+          <div class="project-name">World Bank Blogs</div>
+          <div class="project-desc">Global blogging platform for the World Bank with 32 thematic channels in 7 languages (including Arabic RTL). Supports hundreds of editors worldwide with SSO via Azure AD and automated email workflows.</div>
+          <div class="project-stack">
+            <span class="stack-tag tag-drupal">Drupal 10</span>
+            <span class="stack-tag tag-php">PHP 8</span>
+            <span class="stack-tag tag-mysql">MySQL</span>
+            <span class="stack-tag tag-oauth">Azure AD SSO</span>
+          </div>
+        </div>
 
----
+        <div class="project-card">
+          <div class="project-top">
+            <div class="project-icon">⚖️</div>
+            <a href="https://icsid.worldbank.org/" target="_blank" class="project-link">↗ Live</a>
+          </div>
+          <div class="project-name">ICSID Case Search</div>
+          <div class="project-desc">Real-time arbitration case search for the World Bank's investment dispute forum — serving 160+ member states. Integrated React.js with Drupal JSON:API for a fast SPA-like search experience inside a CMS.</div>
+          <div class="project-stack">
+            <span class="stack-tag tag-drupal">Drupal 10</span>
+            <span class="stack-tag tag-react">React.js</span>
+            <span class="stack-tag tag-react">JSON:API</span>
+            <span class="stack-tag tag-mysql">MySQL</span>
+          </div>
+        </div>
 
-*"Build things that last, document things that matter."*
+        <div class="project-card">
+          <div class="project-top">
+            <div class="project-icon">📊</div>
+            <a href="https://www.pefa.org/" target="_blank" class="project-link">↗ Live</a>
+          </div>
+          <div class="project-name">PEFA Platform</div>
+          <div class="project-desc">Public financial management assessment platform covering 156 countries and 896+ assessments. Built interactive D3.js visualizations for cross-country PFM indicator comparison and batch data exports for policymakers.</div>
+          <div class="project-stack">
+            <span class="stack-tag tag-drupal">Drupal 10</span>
+            <span class="stack-tag tag-d3">D3.js</span>
+            <span class="stack-tag tag-mysql">MySQL</span>
+            <span class="stack-tag tag-aws">REST API</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-top">
+            <div class="project-icon">🗺️</div>
+            <a href="https://www.tax-platform.org/" target="_blank" class="project-link">↗ Live</a>
+          </div>
+          <div class="project-name">PCT Tax Platform</div>
+          <div class="project-desc">Joint IMF/OECD/UN/World Bank platform with an interactive Mapbox project database across 170+ countries. Implemented World Bank cartographic border compliance rules and OAuth2 SSO with Azure Active Directory.</div>
+          <div class="project-stack">
+            <span class="stack-tag tag-drupal">Drupal 10</span>
+            <span class="stack-tag tag-map">Mapbox GL JS</span>
+            <span class="stack-tag tag-oauth">OAuth2</span>
+            <span class="stack-tag tag-mysql">MySQL</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-top">
+            <div class="project-icon">🌍</div>
+            <a href="https://www.findevgateway.org/" target="_blank" class="project-link">↗ Live</a>
+          </div>
+          <div class="project-name">FinDev Gateway</div>
+          <div class="project-desc">Global financial inclusion knowledge platform connecting 2,000+ organizations across 7 world regions in 4 languages. Full two-generation CMS migration (Drupal 7→8→10) with enterprise Solr search across 8,000+ publications.</div>
+          <div class="project-stack">
+            <span class="stack-tag tag-drupal">Drupal 10</span>
+            <span class="stack-tag tag-php">PHP 8</span>
+            <span class="stack-tag tag-aws">Apache Solr</span>
+            <span class="stack-tag tag-mysql">MySQL</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-inner">
+      <div class="section-label">// career</div>
+      <h2>Experience</h2>
+      <p class="section-desc">18+ years across enterprise software, e-commerce, and global institution platforms.</p>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-date">Nov 2017 — Present</div>
+          <div class="timeline-role">Senior Architect — World Bank Group</div>
+          <div class="timeline-company">MomentoUSA · Washington, DC</div>
+          <ul class="timeline-bullets">
+            <li>Architect and lead development of 15+ Drupal platforms serving the World Bank, IMF, OECD, and UN</li>
+            <li>Design SSO solutions integrating OpenID Connect / OAuth2 with Azure Active Directory for 189-country audiences</li>
+            <li>Lead code reviews, mentor developers, and own security compliance (OWASP, World Bank OIS accreditation)</li>
+            <li>Build multilingual architectures supporting up to 7 languages including Arabic RTL</li>
+            <li>Manage cloud deployments across AWS, Azure, Acquia, and Pantheon</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">Jan 2017 — Sep 2017</div>
+          <div class="timeline-role">Lead Magento Architect</div>
+          <div class="timeline-company">Balance Internet LLC · Vietnam</div>
+          <ul class="timeline-bullets">
+            <li>Led a team of mid-level and junior developers on enterprise e-commerce solutions</li>
+            <li>Owned major technical decisions, architecture design, and code quality standards</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">Dec 2010 — Dec 2016</div>
+          <div class="timeline-role">Lead Developer</div>
+          <div class="timeline-company">SETA International LLC · Vietnam</div>
+          <ul class="timeline-bullets">
+            <li>Managed all project delivery activities: requirements, architecture, development, and client communication</li>
+            <li>Served as focal point for all technology requirements across international business partners</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">May 2008 — Dec 2010</div>
+          <div class="timeline-role">Senior Software Developer</div>
+          <div class="timeline-company">VINNO Software · Vietnam</div>
+          <ul class="timeline-bullets">
+            <li>Built and maintained web applications; mentored junior engineers</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- OPEN SOURCE -->
+  <section id="opensource">
+    <div class="section-inner">
+      <div class="section-label">// community</div>
+      <h2>Open Source</h2>
+      <p class="section-desc">Active contributor to the Drupal community with custom modules and platform-level contributions.</p>
+      <div class="oss-grid">
+        <div class="oss-card">
+          <div class="oss-card-title">⬡ Drupal.org Contributor</div>
+          <div class="oss-card-desc">Active core & module contributor at <a href="https://www.drupal.org/u/trangunghoa" target="_blank">drupal.org/u/trangunghoa</a>. Contributing patches, bug reports, and custom modules to the Drupal ecosystem.</div>
+        </div>
+        <div class="oss-card">
+          <div class="oss-card-title">🤖 IBM Watson Drupal Module</div>
+          <div class="oss-card-desc">Architecting and publishing a custom integration module for IBM Watson AI/Speech services on Drupal.org — bringing cognitive computing to the Drupal ecosystem.</div>
+        </div>
+        <div class="oss-card">
+          <div class="oss-card-title">🏅 Magento Certified Developer</div>
+          <div class="oss-card-desc">Certified Magento Developer (ID: 13635). Deep expertise in enterprise e-commerce architecture and custom module development.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-inner">
+      <div class="section-label">// let's talk</div>
+      <h2>Get in Touch</h2>
+      <p>I'm open to senior engineering and architect roles, especially platforms that serve at scale. Whether you have a project in mind or just want to connect — my inbox is open.</p>
+      <div class="contact-links">
+        <a href="mailto:trangunghoa@gmail.com" class="btn btn-primary">✉ trangunghoa@gmail.com</a>
+        <a href="https://github.com/trangunghoa" target="_blank" class="btn btn-secondary">⌥ GitHub</a>
+        <a href="https://www.drupal.org/u/trangunghoa" target="_blank" class="btn btn-secondary">⬡ Drupal.org</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Trang Tien Le · Built with HTML/CSS · Hosted on GitHub Pages</p>
+  </footer>
+
+</body>
+</html>
